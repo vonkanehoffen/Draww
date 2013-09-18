@@ -3,6 +3,9 @@ DrawwV2::Application.routes.draw do
   resources :posts
   root to: 'posts#index'
 
+  # Voting
+  get '/posts/:id/vote_up' => 'posts#vote_up', :as => :vote_up
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

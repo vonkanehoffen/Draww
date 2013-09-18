@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, except: [:index, :show]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :vote_up]
 
   # GET /posts
   # GET /posts.json
@@ -58,6 +59,20 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to posts_url }
       format.json { head :no_content }
+    end
+  end
+
+  def vote_up
+    vote = current_user.vote_up(@post)
+    respond_to do |format|
+      if vote.valid?
+        vote.save
+        format.html { redirect_to @post, notice: 'You voted.' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to @post, notice: vote.errors.messages }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
     end
   end
 

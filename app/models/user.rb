@@ -5,4 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :posts
+  has_many :votes
+
+  def vote_up(post)
+    votes.build(:post => post, :direction => true)
+  end
+
 end
