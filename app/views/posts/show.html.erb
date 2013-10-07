@@ -9,7 +9,7 @@
   <strong>Vote count:</strong>
   <%= @post.vote_count %>
 </p>
-<p><%= link_to 'Vote Up', vote_up_url(@post) %></p>
+<p><%= link_to 'Vote Up', vote_up_url(@post) %> | <%= link_to 'Vote Down', vote_down_url(@post) %></p>
 
 <p><strong>Image</strong>
 	<%= image_tag @post.image.url %>

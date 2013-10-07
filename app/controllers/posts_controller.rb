@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
-  before_action :set_post, only: [:show, :edit, :update, :destroy, :vote_up]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :vote_up, :vote_down]
 
   # GET /posts
   # GET /posts.json
@@ -52,10 +52,20 @@ class PostsController < ApplicationController
   end
 
   def vote_up
-    vote = current_user.vote_up(@post)
-    if vote.valid?
+    vote = @post.vote_up(current_user)
+    if vote.save
       vote.save
-      redirect_to @post, notice: 'You voted.'
+      redirect_to @post, notice: 'You voted up.'
+    else
+      redirect_to @post, notice: vote.errors.messages
+    end
+  end
+
+  def vote_down
+    vote = @post.vote_down(current_user)
+    if vote.save
+      vote.save
+      redirect_to @post, notice: 'You voted down.'
     else
       redirect_to @post, notice: vote.errors.messages
     end

@@ -7,8 +7,4 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :votes
 
-  def vote_up(post)
-    votes.build(:post => post, :direction => true)
-  end
-
 end
