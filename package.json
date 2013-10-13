@@ -1,0 +1,10 @@
+{
+  "name": "draww",
+  "description": "Draww website",
+  "version": "3.0.0",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-less": "~0.7.0",
+    "grunt-contrib-watch": "~0.5.3"
+  }
+}
