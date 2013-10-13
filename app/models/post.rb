@@ -11,4 +11,8 @@ class Post < ActiveRecord::Base
     	votes.build(:user => user, :weight => -1)
   	end
 
+  	def count_votes
+  		logger.debug "counting votes >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> "+self.votes.count
+  	end
+
 end

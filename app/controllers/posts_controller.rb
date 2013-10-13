@@ -54,7 +54,6 @@ class PostsController < ApplicationController
   def vote_up
     vote = @post.vote_up(current_user)
     if vote.save
-      vote.save
       redirect_to @post, notice: 'You voted up.'
     else
       redirect_to @post, notice: vote.errors.messages
@@ -64,7 +63,6 @@ class PostsController < ApplicationController
   def vote_down
     vote = @post.vote_down(current_user)
     if vote.save
-      vote.save
       redirect_to @post, notice: 'You voted down.'
     else
       redirect_to @post, notice: vote.errors.messages
