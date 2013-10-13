@@ -31,7 +31,6 @@ gem 'jbuilder', '~> 1.2'
 gem 'paperclip', '>= 3.5.1'
 gem 'devise', '>=3.1.0'
 gem 'kaminari', '>=0.14.1'
-gem 'half-pipe'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

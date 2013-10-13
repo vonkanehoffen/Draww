@@ -5,7 +5,7 @@ module.exports = function (grunt) {
         "less": {
             "main": {
                 files: {
-                    "app/assets/stylesheets/draww.css": "app/assets/less/draww.less"
+                    "app/assets/stylesheets/draww.css": "app/less/draww.less"
                 },
                 options: {
                     //yuicompress: true
@@ -14,7 +14,7 @@ module.exports = function (grunt) {
         },
         "watch": {
             "main": {
-                "files": ["app/assets/less/draww.less"],
+                "files": ["app/less/draww.less"],
                 "tasks": ["less:main"]
             }
         }

@@ -38,3 +38,12 @@ Some setup you must do manually if you haven't yet:
 
 ===============================================================================
 
+
+Sprockets:
+
+To compile production assets with fingerprinting:
+rake assets:precompile
+
+Make webrick compile statuic assets:
+config.serve_static_assets = true
+ - don't use this for ACTUAL productikon though
