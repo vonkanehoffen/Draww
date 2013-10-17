@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<% if !request.xhr? %><!DOCTYPE html>
 <html>
 <head>
 	<title>DrawwV2</title>
@@ -57,4 +57,4 @@
 		</div>
 	</div>
 </body>
-</html>
+</html><% else %><%= yield %><% end %>
