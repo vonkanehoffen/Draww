@@ -3,6 +3,7 @@ class User::ParameterSanitizer < Devise::ParameterSanitizer
 
     def sign_in
       default_params.permit(auth_keys)
+      default_params.permit(:email, :password, :remember_me)
     end
 
     def sign_up

@@ -11,6 +11,10 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    # TODO: How do I fucking use this?
+    # respond_to do |format|
+    #     format.html { render :layout => !request.xhr? }
+    # end
   end
 
   # GET /posts/new
