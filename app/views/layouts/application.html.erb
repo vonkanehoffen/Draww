@@ -1,29 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>DrawwV2</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
+	<title>DrawwV2</title>
+	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
-	<a href="/">Draww</a>
-  <div id="user_nav">
-    <% if user_signed_in? %>
-      Logged in as <strong><%= current_user.username %></strong>.
-      <%= link_to 'Edit profile', edit_user_registration_path %> |
-      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "Sign up", new_user_registration_path %> |
-      <%= link_to "Login", new_user_session_path %>
-    <% end %>
-  </div>
+	<div class="modal fade" id="login-modal" tabindex="-1" role="dialog"></div>
+  <!-- Fixed navbar -->
+  <div id="wrap">
+	  <div class="navbar navbar-default navbar-fixed-top">
+	  	<div class="container">
+	      <div class="navbar-header">
+	        	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	          	<span class="icon-bar"></span>
+	          	<span class="icon-bar"></span>
+	          	<span class="icon-bar"></span>
+	        	</button>
+	        	<a id="site-logo" class="logo" href="/"></a>
+	      </div>
+	    	<div class="navbar-collapse collapse">
+	    		<ul class="nav navbar-nav navbar-right">
 
-  <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, id: "flash_#{name}" %>
-  <% end %>
+	      		<% if user_signed_in? %>
 
-<%= yield %>
+	      		<li class="dropdown user-options">
+	      			<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i><%= current_user.username %><b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><%= link_to 'Edit profile', edit_user_registration_path %></li>
+								<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+							</ul>
+						</li>
 
+						<% else %>
+
+						<li>
+							<%= link_to "Login", new_user_session_path, :data => { :toggle => 'modal', :target => '#login-modal' } %>
+						</li>
+						<li>
+							<%= link_to "Sign up", new_user_registration_path %>
+						</li>
+						<!-- <a data-toggle="modal" data-target="#login-modal" href="">Login</a> -->
+
+						<% end %>
+					</ul>
+				</div><!--/.nav-collapse -->
+			</div>
+	  </div>
+		<div class="container">
+			<% flash.each do |name, msg| %>
+				<%= content_tag :div, msg, id: "flash_#{name}" %>
+			<% end %>
+
+			<%= yield %>
+		</div>
+	</div>
 </body>
 </html>
