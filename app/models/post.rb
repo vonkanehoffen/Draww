@@ -30,4 +30,16 @@ class Post < ActiveRecord::Base
     self.save!
 	end
 
+  def self.hot(limit=20, offset=0)
+    self.find_by_sql <<eos
+      SELECT *, LOG10(ABS(vote_count) + 1) * SIGN(vote_count)   
+          + (UNIX_TIMESTAMP(created_at) / 300000)
+          as hotness
+      FROM posts
+      ORDER BY hotness
+           DESC
+      LIMIT #{offset}, #{limit}
+eos
+  end
+
 end
