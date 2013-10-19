@@ -1,5 +1,25 @@
 <% if !user_signed_in? %>
-<p>New user hero unit here</p>
+    <div class="row" id="signup-hero">
+      <!-- <button type="button" class="close pull-left" id="close-signup-hero">×</button> -->
+      <div class="col-md-8">
+        <img src="img/home-signup-hero.png" alt="Welcome to Draww! Share your images with the world. SIGN UP FREE">
+      </div>
+      <div class="col-md-4">
+        <form action="my-images-new-user.html">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Pick a username">
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Your Email">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" placeholder="Create a password">
+          </div>
+          <button class="btn btn-primary pull-right">Signup for Draww</button>
+          <p class="terms">By clicking above, you agree to our <a href="#">terms of service</a>.</p>
+        </form>
+      </div>
+    </div>
 <% end %>
 <h1>Listing posts</h1>
 
