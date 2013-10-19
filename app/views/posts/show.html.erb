@@ -11,7 +11,7 @@
     <strong>Vote count:</strong>
     <span class="vote-count"><%= @post.vote_count %></span>
   </p>
-  <p><%= link_to 'Vote Up', vote_up_url(@post), :remote => true, :class => 'vote-link' %> | <%= link_to 'Vote Down', vote_down_url(@post), :remote => true, , :class => 'vote-link' %></p>
+  <p><%= link_to 'Vote Up', vote_up_url(@post), :remote => true, :class => 'vote-link' %> | <%= link_to 'Vote Down', vote_down_url(@post), :remote => true, :class => 'vote-link' %></p>
 
   <p><strong>Image</strong>
   	<%= image_tag @post.image.url %>

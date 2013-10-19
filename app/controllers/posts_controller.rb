@@ -55,9 +55,9 @@ class PostsController < ApplicationController
   def vote_up
     vote = @post.vote_up(current_user)
     if vote.save
-      render :json => {vote: => vote, post: => @post}
+      render :json => {:vote => vote, :post => @post}
     else
-      render :status => :bad_request, :json => {vote: => vote, post: => @post}
+      render :status => :bad_request, :json => {:vote => vote, :post => @post}
     end
       # redirect_to @post, notice: 'You voted up.'
     # else
@@ -69,9 +69,9 @@ class PostsController < ApplicationController
     vote = @post.vote_down(current_user)
     vote.save
     if vote.save
-      render :json => {vote: => vote, post: => @post}
+      render :json => {:vote => vote, :post => @post}
     else
-      render :status => :bad_request, :json => {vote: => vote, post: => @post}
+      render :status => :bad_request, :json =>  {:vote => vote, :post => @post}
     end
     # vote = @post.vote_down(current_user)
     # if vote.save
