@@ -58,19 +58,26 @@ class PostsController < ApplicationController
   def vote_up
     vote = @post.vote_up(current_user)
     if vote.save
-      redirect_to @post, notice: 'You voted up.'
+      render :json => @vote
     else
-      redirect_to @post, notice: vote.errors.messages
+      render :status => :bad_request, :json => @vote
     end
+      # redirect_to @post, notice: 'You voted up.'
+    # else
+    #   redirect_to @post, notice: vote.errors.messages
+    # end
   end
 
   def vote_down
     vote = @post.vote_down(current_user)
-    if vote.save
-      redirect_to @post, notice: 'You voted down.'
-    else
-      redirect_to @post, notice: vote.errors.messages
-    end
+    vote.save
+    render :text => 'You voted down.'
+    # vote = @post.vote_down(current_user)
+    # if vote.save
+    #   redirect_to @post, notice: 'You voted down.'
+    # else
+    #   redirect_to @post, notice: vote.errors.messages
+    # end
   end
 
   private

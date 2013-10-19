@@ -4,15 +4,30 @@ class Post < ActiveRecord::Base
 	has_many :votes
 
 	def vote_up(user)
+    vote = votes.find_by_user_id(user.id)
+    if vote
+      vote.update_attributes(:weight => 1)
+    else
     	votes.build(:user => user, :weight => 1)
-  	end
+    end
+    count_votes
+    vote
+	end
 
 	def vote_down(user)
-    	votes.build(:user => user, :weight => -1)
-  	end
+    vote = votes.find_by_user_id(user.id)
+    if vote
+      vote.update_attributes(:weight => -1)
+    else
+      votes.build(:user => user, :weight => -1)
+    end
+    count_votes
+    vote
+	end
 
-  	def count_votes
-  		logger.debug "counting votes >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> "+self.votes.count
-  	end
+	def count_votes
+		self.vote_count = votes.inject(0) { |count, v| count + v.weight }
+    self.save!
+	end
 
 end
