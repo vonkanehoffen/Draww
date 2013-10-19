@@ -21,30 +21,25 @@
       </div>
     </div>
 <% end %>
-<h1>Listing posts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Vote count</th>
-      <th>User</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="row view-heading">
+  <div class="col-md-12">
+    <h2><i class="icon-angle-right"></i>Front Page</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <% if user_signed_in? %>
+      <div class="new-post auto-square">
+        <div class="dummy"></div>
+        <%= link_to content_tag(:span, "", :class => "inner glyphicon glyphicon-plus-sign"), new_post_path, :data => { :toggle => "modal", :target => "#new-post-modal" } %>
+      </div>
+      <div class="modal fade" id="new-post-modal" tabindex="-1" role="dialog"></div>
+    <% end %>
     <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.vote_count %></td>
-        <td><%= post.user.username rescue "No user" %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="post">
+        <%= link_to image_tag(post.image.url(:thumb)), post %>
+        <%= link_to content_tag(:i, "", :class => "vote icon-arrow-up icon-large"), vote_up_url(post) %>
+      </div>
     <% end %>
   </tbody>
 </table>
