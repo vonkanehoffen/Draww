@@ -169,8 +169,8 @@ var uploader = {
 			];
 			uploader.img.scale(960/paper.view.size.width);
 			paper.view.viewSize = [960,960];
-			console.log("populating data url");
-			$('input[name="image_data"]').val(document.getElementById("uploader-pjs").toDataURL("image/jpeg", 0.9))
+			var image_data = document.getElementById("uploader-pjs").toDataURL("image/jpeg", 0.9);
+			$('#post_image_data').val(image_data);
 		}
 	}
 }

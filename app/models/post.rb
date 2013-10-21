@@ -3,6 +3,11 @@ class Post < ActiveRecord::Base
 	belongs_to :user
 	has_many :votes
 
+  attr_accessor :image_data
+  before_validation :save_image_data
+
+  require_dependency 'lib/datafy'
+
 	def vote_up(user)
     vote = votes.find_by_user_id(user.id)
     if vote
@@ -40,6 +45,29 @@ class Post < ActiveRecord::Base
            DESC
       LIMIT #{offset}, #{limit}
 eos
+  end
+
+  private
+  def save_image_data
+    logger.debug "Saving image data"
+    if self.image_data
+      require Rails.root.join('lib', 'datafy.rb')
+      tmp_uri = "tmp/"+friendly_name(self.title)+".jpg"
+      logger.debug "Friendly name = "+tmp_uri
+      File.open(tmp_uri, "wb") { |f| f.write(Datafy::decode_data_uri(image_data)[0]) }  
+      self.image = File.open(tmp_uri, "r")
+      # TODOL: Remove the temporary image after paperclip saves it.
+    end
+  end
+
+  def friendly_name(str)
+    s = str.encode('utf-8')
+    s.downcase!
+    s.gsub!(/'/, '')
+    s.gsub!(/[^A-Za-z0-9]+/, ' ')
+    s.strip!
+    s.gsub!(/\ +/, '-')
+    return s
   end
 
 end

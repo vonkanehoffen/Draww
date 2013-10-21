@@ -11,7 +11,7 @@
       <%= f.file_field :image %>
       <p class="help-block">JPEG or PNG. 5MB max.</p>
     </div>
-    <input type="hidden" name="image_data">
+    <%= f.hidden_field :image_data %>
     <div id="meta">
     	<%= f.label :title %>
     	<%= f.text_field :title %>
