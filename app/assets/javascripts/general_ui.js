@@ -6,7 +6,8 @@ $(document).ready(function(){
 	})
 
     $('.vote-link').on('ajax:success', function(evt, data, status, xhr) {
-        // console.info(evt);
-        $(evt.target).parents('.post').find('.vote-count').text(data.post.vote_count);
+    	console.log("ajax success");
+        //console.info(evt);
+        $(evt.target).parents('.post-show').find('.vote-count').text(data.post.vote_count);
     });
 })

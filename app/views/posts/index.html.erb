@@ -25,8 +25,9 @@
     <% end %>
     <% @posts.each do |post| %>
       <div class="post">
-        <%= link_to image_tag(post.image.url(:thumb)), post %>
+        <%= link_to image_tag(post.image.url(:thumb)), post, :data => { :toggle => "modal", :target => "#post-"+post.id.to_s+"-modal" } %>
         <%= link_to content_tag(:span, "", :class => "glyphicon glyphicon-chevron-up"), vote_up_url(post), :class => "vote" %>
+        <div class="modal fade" id="post-<%= post.id %>-modal" tabindex="-1" role="dialog"></div>
       </div>
     <% end %>
   </tbody>

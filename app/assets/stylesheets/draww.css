@@ -203,20 +203,20 @@ body .modal-dialog {
 .user-image {
   width: 100%;
 }
-.modal-dialog.post-show h4 {
+.post-show h4 {
   text-align: left;
 }
-.modal-dialog.post-show .actions a,
-.modal-dialog.post-show .actions i {
+.post-show .actions a,
+.post-show .actions i {
   text-decoration: none;
   color: #555;
   cursor: pointer;
 }
-.modal-dialog.post-show .actions a:hover,
-.modal-dialog.post-show .actions i:hover {
+.post-show .actions a:hover,
+.post-show .actions i:hover {
   opacity: 0.8;
 }
-.modal-dialog.post-show .vote-count {
+.post-show .vote-count {
   float: left;
   font-size: 2.5em;
   padding: 0.2em 0.3em;
