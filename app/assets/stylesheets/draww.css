@@ -116,8 +116,13 @@ h2 .lighter {
   color: #fff;
   background: rgba(0, 0, 0, 0.5);
   padding: 8px;
+  text-decoration: none;
   -webkit-transition: background-color 0.4s ease;
   transition: background-color 0.4s ease;
+}
+.post .vote .glyphicon {
+  display: block;
+  margin: -2px 0 2px 0;
 }
 .post .vote:hover {
   cursor: pointer;
@@ -246,12 +251,13 @@ body .modal-dialog {
   cursor: pointer;
   text-decoration: none;
 }
-.auto-square i.icon-4x {
+.auto-square .glyphicon {
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-top: -28px;
+  margin-top: -33px;
   margin-left: -28px;
+  font-size: 4em;
 }
 .new-post .inner {
   background-image: -webkit-gradient(radial, center center, 0, center center, 460, from(#777777), to(#333333));
@@ -264,7 +270,7 @@ body .modal-dialog {
 .new-post .inner.over {
   opacity: 0.8;
 }
-.new-post .inner i {
+.new-post .inner .glyphicon {
   color: #fff;
 }
 #drop-area .target {

@@ -129,7 +129,12 @@ h2 .lighter {
 		color:#fff;
 		background:rgba(0,0,0,0.5);
 		padding:8px;
+		text-decoration: none;
 		.transition(background-color 0.4s ease);
+		.glyphicon { 
+			display: block;
+			margin:-2px 0 2px 0;
+		}
 		&:hover {
 			cursor:pointer;
 			background:#000;
@@ -212,12 +217,13 @@ body .modal-dialog {
 		cursor:pointer;
 		text-decoration: none; 
 	}
-	i.icon-4x {
+	.glyphicon {
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		margin-top: -28px;
+		margin-top: -33px;
 		margin-left: -28px;
+		font-size: 4em;
 	}
 }
 .new-post {
@@ -226,7 +232,7 @@ body .modal-dialog {
 		&:hover, &.over { 
 			opacity:0.8;
 		}
-		i { color:#fff; }
+		.glyphicon { color:#fff; }
 	}
 }
 

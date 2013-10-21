@@ -19,14 +19,14 @@
     <% if user_signed_in? %>
       <div class="new-post auto-square">
         <div class="dummy"></div>
-        <%= link_to content_tag(:span, "", :class => "inner glyphicon glyphicon-plus-sign"), new_post_path, :data => { :toggle => "modal", :target => "#new-post-modal" } %>
+        <%= link_to content_tag(:span, "", :class => "glyphicon glyphicon-plus-sign"), new_post_path, :data => { :toggle => "modal", :target => "#new-post-modal" }, :class => "inner" %>
       </div>
       <div class="modal fade" id="new-post-modal" tabindex="-1" role="dialog"></div>
     <% end %>
     <% @posts.each do |post| %>
       <div class="post">
         <%= link_to image_tag(post.image.url(:thumb)), post %>
-        <%= link_to content_tag(:i, "", :class => "vote icon-arrow-up icon-large"), vote_up_url(post) %>
+        <%= link_to content_tag(:span, "", :class => "glyphicon glyphicon-chevron-up"), vote_up_url(post), :class => "vote" %>
       </div>
     <% end %>
   </tbody>
