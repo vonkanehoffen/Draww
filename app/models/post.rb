@@ -1,5 +1,7 @@
 class Post < ActiveRecord::Base
-	has_attached_file :image, :styles => { :fullsize => "960x960>", :thumb => "285x285>" }
+	has_attached_file :image, 
+    :styles => { :fullsize => "960x960>", :thumb => "285x285>" },
+    :default_url => '/assets/missing.png'
 	belongs_to :user
 	has_many :votes
 
