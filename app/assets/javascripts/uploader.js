@@ -183,9 +183,13 @@ $(document).ready(function(){
         event.preventDefault();
     });
 
-	if($('#uploader-pjs').length) {
-		uploader.init();
-	}
+    // Initialise uploader when the modal loads
+	$('#new-post-modal').on('shown.bs.modal', function() {
+		if($('#uploader-pjs').length) {
+			uploader.init();
+		}		
+	});
+	
 	// Show new post modal on drop into new post icon tile
 	$('.new-post a.inner').bind('drop', function(evt) {
 		event.preventDefault();
