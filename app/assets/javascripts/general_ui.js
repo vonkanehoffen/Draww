@@ -7,8 +7,7 @@ $(document).ready(function(){
 	})
 
 	// Update vote count 
-    $('.vote-link').on('ajax:success', function(evt, data, status, xhr) {
-    	console.log("ajax success");
+    $(document).on('ajax:success', '.vote-link', function(evt, data, status, xhr) {
         //console.info(evt);
         $(evt.target).parents('.post-show').find('.vote-count').text(data.post.vote_count);
     });
