@@ -16,4 +16,9 @@ $(document).ready(function(){
 	$('#close-signup-hero').click(function(){
 		$('#signup-hero').remove();
 	})
+
+	// Focus Username field for login modal
+	$('#login-modal').on('shown.bs.modal', function() {
+		$('#user_username').focus();
+	})
 })
