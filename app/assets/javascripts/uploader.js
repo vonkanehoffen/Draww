@@ -88,13 +88,30 @@ var uploader = {
 				var s = paper.view.size.height/img.size.height;
 				img.scale(s);
 				img.currentScale = s;
+
         } else {
         	uploader.img.orientation = 'portrait';
 				var s = paper.view.size.width/img.size.width;
 				img.scale(s);
 				img.currentScale = s;
+
         }
+        uploader.defineMoveLimits();
         uploader.ctrl.build();
+	},
+
+	defineMoveLimits: function() {
+		// for ctrl.move
+		var img = uploader.img,
+			iw = img.size.width*img.currentScale,
+			ih = img.size.height*img.currentScale,
+			vw = paper.view.size.width,
+			vh = paper.view.size.height;
+
+		img.left_limit = (img.orientation == "landscape") ? iw/2 : ih/2;
+		img.right_limit = vw - img.left_limit;
+		img.top_limit = (img.orientation == "landscape") ? ih/2 : iw/2;
+		img.bottom_limit = vh - img.top_limit;		
 	},
 
 	// Image position controls //////////////////////////////////////////////////////////
@@ -127,21 +144,25 @@ var uploader = {
 		},
 
 		move: function(evt) {
-			//console.log(evt);
-			if(uploader.img.orientation == 'portrait') {
-				uploader.img.position = [
-					uploader.img.position.x,
-					(evt.point.y - evt.downPoint.y)+uploader.img.lastCenter.y];
+			var img = uploader.img;
+			if(img.orientation == 'portrait') {
+
+				var new_y = (evt.point.y - evt.downPoint.y)+img.lastCenter.y;
+				if(new_y > img.bottom_limit && new_y < img.top_limit) {
+					img.position = [ img.position.x, new_y ];
+				}
+
 			} else {
-				uploader.img.position = [
-					(evt.point.x - evt.downPoint.x)+uploader.img.lastCenter.x, 
-					uploader.img.position.y];
+
+				var new_x = (evt.point.x - evt.downPoint.x)+img.lastCenter.x;
+				if(new_x > img.right_limit && new_x < img.left_limit) {
+					img.position = [ new_x, img.position.y ];
+				}
 			}
 
 		},
 
 		rotate: function() {
-			console.log("rotate");
 			uploader.img.position = paper.view.center;
 			uploader.img.rotate(90, paper.view.center);
 			if(uploader.img.orientation == 'portrait') {
@@ -151,6 +172,7 @@ var uploader = {
 				uploader.img.orientation = 'portrait';
 			}
 			paper.view.draw();
+			uploader.defineMoveLimits();
 		},
 
 		// Saving ///////////////////////////////////////////////////////////////////////
