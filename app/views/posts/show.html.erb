@@ -6,14 +6,14 @@
     <%= image_tag @post.image.url(:fullsize) %>
   </div>
   <div class="modal-footer">
-    <h4><%= @post.title %> <small>by <a href="#">Some User</a></small></h4>
+    <h4><%= @post.title %> <small>by <%= @post.user.username %></small></h4>
     <div class="vote-count"><%= @post.vote_count %></div>
     <div class="actions">
       <%= link_to content_tag(:span, "", :class => "glyphicon glyphicon-chevron-up"), vote_up_url(@post), :remote => true, :class => 'vote-link pull-left' %>
       <%= link_to content_tag(:span, "", :class => "glyphicon glyphicon-chevron-down"), vote_down_url(@post), :remote => true, :class => 'vote-link pull-left' %>
       <i class="icon-fullscreen icon-3x pull-left post-fullscreen" title="Full screen"></i>
       <i class="icon-remove icon-3x pull-right post-close" data-dismiss="modal" title="Close"></i>
-      <%= link_to 'Edit', edit_post_path(@post) if @post.user == current_user %>
+      <%# link_to 'Edit', edit_post_path(@post) if @post.user == current_user %>
     </div>
   </div>
 </div>
