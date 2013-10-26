@@ -15,4 +15,5 @@
 //  require turbolinks
 //= require paper
 //= require bootstrap
+//= require jquery.validate
 //= require_tree .
