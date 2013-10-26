@@ -222,21 +222,20 @@ body .modal-dialog {
 .post-show h4 {
   text-align: left;
 }
-.post-show .actions a,
-.post-show .actions i {
-  text-decoration: none;
+.post-show .actions .glyphicon {
   color: #555;
   cursor: pointer;
+  font-size: 2.5em;
+  margin-right: 10px;
 }
-.post-show .actions a:hover,
-.post-show .actions i:hover {
+.post-show .actions .glyphicon:hover {
   opacity: 0.8;
 }
 .post-show .vote-count {
   float: left;
   font-size: 2.5em;
   padding: 0.2em 0.3em;
-  margin-right: 0.3em;
+  margin-right: 10px;
   line-height: 0.9em;
   color: #fff;
   font-weight: bold;
