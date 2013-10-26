@@ -152,25 +152,26 @@ body .modal-dialog {
 // Surely there is a better way of doing this...
 @media all and (orientation: landscape) {
 	@media (min-height: 600px), 
-		   (max-height: 600px)  { body .modal-dialog { width:430px; } }
-	@media (min-height: 650px)  { body .modal-dialog { width:480px; } }
-	@media (min-height: 700px)  { body .modal-dialog { width:530px; } }
-	@media (min-height: 750px)  { body .modal-dialog { width:580px; } }
+		   (max-height: 600px)  { body .modal-dialog, .post-show.non-modal { width:430px; } }
+	@media (min-height: 650px)  { body .modal-dialog, .post-show.non-modal { width:480px; } }
+	@media (min-height: 700px)  { body .modal-dialog, .post-show.non-modal { width:530px; } }
+	@media (min-height: 750px)  { body .modal-dialog, .post-show.non-modal { width:580px; } }
 
-	@media (min-height: 800px)  { body .modal-dialog { width:630px; } }
-	@media (min-height: 850px)  { body .modal-dialog { width:680px; } }
-	@media (min-height: 900px)  { body .modal-dialog { width:730px; } }
-	@media (min-height: 950px)  { body .modal-dialog { width:780px; } }
-	@media (min-height: 1000px) { body .modal-dialog { width:830px; } }
-	@media (min-height: 1050px) { body .modal-dialog { width:880px; } }
-	@media (min-height: 1100px) { body .modal-dialog { width:930px; } }
-	@media (min-height: 1150px) { body .modal-dialog { width:980px; } }
-	@media (min-height: 1200px) { body .modal-dialog { width:100%; } }
+	@media (min-height: 800px)  { body .modal-dialog, .post-show.non-modal { width:630px; } }
+	@media (min-height: 850px)  { body .modal-dialog, .post-show.non-modal { width:680px; } }
+	@media (min-height: 900px)  { body .modal-dialog, .post-show.non-modal { width:730px; } }
+	@media (min-height: 950px)  { body .modal-dialog, .post-show.non-modal { width:780px; } }
+	@media (min-height: 1000px) { body .modal-dialog, .post-show.non-modal { width:830px; } }
+	@media (min-height: 1050px) { body .modal-dialog, .post-show.non-modal { width:880px; } }
+	@media (min-height: 1100px) { body .modal-dialog, .post-show.non-modal { width:930px; } }
+	@media (min-height: 1150px) { body .modal-dialog, .post-show.non-modal { width:980px; } }
+	@media (min-height: 1200px) { body .modal-dialog, .post-show.non-modal { width:100%; } }
 }
 	.user-image {
 		width:100%;
 	}
 .post-show {
+	img { width: 100%; }
 	h4 { text-align: left; }
 	.actions a, .actions i {
 		text-decoration: none;
@@ -192,6 +193,7 @@ body .modal-dialog {
 		border-radius:5px;
 		cursor:default;
 	}
+	&.non-modal { margin: 0 auto; }
 }
 
 // New Post -------------------------------------------------------------------

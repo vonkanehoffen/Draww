@@ -136,71 +136,87 @@ body .modal-dialog {
   
 }
 @media all and (orientation: landscape) and (min-height: 600px), all and (orientation: landscape) and (max-height: 600px) {
-  body .modal-dialog {
+  body .modal-dialog,
+  .post-show.non-modal {
     width: 430px;
   }
 }
 @media all and (orientation: landscape) and (min-height: 650px) {
-  body .modal-dialog {
+  body .modal-dialog,
+  .post-show.non-modal {
     width: 480px;
   }
 }
 @media all and (orientation: landscape) and (min-height: 700px) {
-  body .modal-dialog {
+  body .modal-dialog,
+  .post-show.non-modal {
     width: 530px;
   }
 }
 @media all and (orientation: landscape) and (min-height: 750px) {
-  body .modal-dialog {
+  body .modal-dialog,
+  .post-show.non-modal {
     width: 580px;
   }
 }
 @media all and (orientation: landscape) and (min-height: 800px) {
-  body .modal-dialog {
+  body .modal-dialog,
+  .post-show.non-modal {
     width: 630px;
   }
 }
 @media all and (orientation: landscape) and (min-height: 850px) {
-  body .modal-dialog {
+  body .modal-dialog,
+  .post-show.non-modal {
     width: 680px;
   }
 }
 @media all and (orientation: landscape) and (min-height: 900px) {
-  body .modal-dialog {
+  body .modal-dialog,
+  .post-show.non-modal {
     width: 730px;
   }
 }
 @media all and (orientation: landscape) and (min-height: 950px) {
-  body .modal-dialog {
+  body .modal-dialog,
+  .post-show.non-modal {
     width: 780px;
   }
 }
 @media all and (orientation: landscape) and (min-height: 1000px) {
-  body .modal-dialog {
+  body .modal-dialog,
+  .post-show.non-modal {
     width: 830px;
   }
 }
 @media all and (orientation: landscape) and (min-height: 1050px) {
-  body .modal-dialog {
+  body .modal-dialog,
+  .post-show.non-modal {
     width: 880px;
   }
 }
 @media all and (orientation: landscape) and (min-height: 1100px) {
-  body .modal-dialog {
+  body .modal-dialog,
+  .post-show.non-modal {
     width: 930px;
   }
 }
 @media all and (orientation: landscape) and (min-height: 1150px) {
-  body .modal-dialog {
+  body .modal-dialog,
+  .post-show.non-modal {
     width: 980px;
   }
 }
 @media all and (orientation: landscape) and (min-height: 1200px) {
-  body .modal-dialog {
+  body .modal-dialog,
+  .post-show.non-modal {
     width: 100%;
   }
 }
 .user-image {
+  width: 100%;
+}
+.post-show img {
   width: 100%;
 }
 .post-show h4 {
@@ -227,6 +243,9 @@ body .modal-dialog {
   background: #888;
   border-radius: 5px;
   cursor: default;
+}
+.post-show.non-modal {
+  margin: 0 auto;
 }
 .auto-square {
   display: inline-block;
