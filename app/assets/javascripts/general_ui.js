@@ -9,10 +9,16 @@ $(document).ready(function(){
 
 	// Update vote count //////////////////////////////////////////////////////
 
+	// In modal
     $(document).on('ajax:success', '.vote-link', function(evt, data, status, xhr) {
         //console.info(evt);
         $(evt.target).parents('.post-show').find('.vote-count').text(data.post.vote_count);
     });
+
+    // On posts/index
+    $(document).on('ajax:success', '.vote', function(evt, data, status, xhr) {
+    	$(evt.target).text(data.post.vote_count);
+    })
 
     // Close signup nagging when button clicked ///////////////////////////////
 
