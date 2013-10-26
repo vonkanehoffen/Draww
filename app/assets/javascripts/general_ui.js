@@ -32,6 +32,12 @@ $(document).ready(function(){
 		$('#user_username').focus();
 	})
 
+	// Show tooltips //////////////////////////////////////////////////////////
+
+	$('.vote').tooltip({
+		placement: 'left'
+	});
+
 	// Login & Signup form field validation ///////////////////////////////////
 
 	$.validator.setDefaults({
