@@ -1,1 +1,6 @@
-<%= link_to_unless current_page.last?, raw('Older &raquo;'), url, :remote => remote do |name| -%><span class="disabled"><%= name %></span><% end -%>
+<% if !current_page.last? %>
+  <div class="auto-square load-more">
+    <div class="dummy"></div>
+    <%= link_to content_tag(:i, '', :class => "glyphicon glyphicon-circle-arrow-right"), url, :remote => remote, :class => "inner" %>
+  </div>
+<% end %>
