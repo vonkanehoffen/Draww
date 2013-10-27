@@ -18,7 +18,8 @@ module.exports = function (grunt) {
           customselectors: {
             "cc_by_nc": ".cc",
             "draww_logo": ".logo",
-            "spinner": ".spinner"
+            "spinner": ".spinner",
+            "spinner_grey": ".spinner-grey"
           }
         }
       }

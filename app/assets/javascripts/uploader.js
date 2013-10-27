@@ -183,6 +183,7 @@ var uploader = {
 			var ho = paper.view.size.height;
 			var xo = uploader.img.size.width;
 			$('#uploader').hide();
+			$('#uploader-saving').width(wo).height(ho).addClass('spinner-grey');
 			$('#uploader-saving').show();
 			uploader.ctrl.hide();
 			uploader.img.position = [

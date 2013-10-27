@@ -28,7 +28,7 @@ $(function(){
     });
     $(document).on('shown.bs.modal', '.modal', function() {
     	console.log("shown.bs.modal");
-    	//$(this).find('.spinner').remove();
+    	$(this).find('.spinner').remove();
     });
 
 })
