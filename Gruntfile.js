@@ -14,6 +14,7 @@ module.exports = function (grunt) {
         options: {
           src: "app/grunt_assets/svg/",
           dest: "app/assets/grunticon",
+          svgo: true,
           datasvgcss: "../stylesheets/icons.data.svg.css",
           customselectors: {
             "cc_by_nc": ".cc",
