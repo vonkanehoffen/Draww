@@ -20,4 +20,15 @@ $(function(){
     	$(evt.target).parents('.load-more').replaceWith($(data).find('.load-more'));
     })
 
+    // Spinners ///////////////////////////////////////////////////////////////
+
+    $(document).on('show.bs.modal', '.modal', function() {
+    	console.log("show.bs.modal");
+    	$(this).append('<div class="spinner"></div>');
+    });
+    $(document).on('shown.bs.modal', '.modal', function() {
+    	console.log("shown.bs.modal");
+    	//$(this).find('.spinner').remove();
+    });
+
 })
