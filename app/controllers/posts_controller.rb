@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.hot.page(params[:page]).per(10)
+    @posts = Post.hot.page(params[:page]).per(18)
   end
 
   # GET /posts/1
