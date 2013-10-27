@@ -43,25 +43,13 @@ var uploader = {
 	    $('#drop-area .target, .new-post a.inner').bind('dragleave dragexit', function() {
 	    	$(this).removeClass('over');
 	    });
-	    $('#drop-area .target, #uploader-pjs').bind("drop", uploader.drop);
+	    $('#drop-area .target, #uploader-pjs').bind("drop", function(evt) {
+	    	uploader.drop(evt, evt.originalEvent.dataTransfer.files[0]);
+	    });
 
 	    // File input handler
 	    $('#post_image').change(function(evt){
-			evt.preventDefault();
-	        console.info(evt);
-	        var file = evt.target.files[0];
-	        var reader = new FileReader();
-
-	        reader.onload = function(evt) {
-	            var img = document.createElement('img');
-	            img.onload = function () {
-	                uploader.initImage(img);
-	                paper.view.draw();
-	            }
-	            img.src = evt.target.result;
-	        };
-	        reader.readAsDataURL(file);
-	        console.log("uploader.drop",evt);
+	    	uploader.drop(evt, evt.target.files[0]);
 	    });
 
 	    console.log('Uploader initialised');
@@ -69,22 +57,21 @@ var uploader = {
 
 	// Handle Image Drop ////////////////////////////////////////////////////////////////
 
-	drop: function(event) {
-		event.preventDefault();
-        console.info(event);
-        var file = event.originalEvent.dataTransfer.files[0];
+	drop: function(evt, file) {
+		evt.preventDefault();
+        console.info(evt);
         var reader = new FileReader();
 
-        reader.onload = function(event) {
+        reader.onload = function(evt) {
             var img = document.createElement('img');
             img.onload = function () {
                 uploader.initImage(img);
                 paper.view.draw();
             }
-            img.src = event.target.result;
+            img.src = evt.target.result;
         };
         reader.readAsDataURL(file);
-        console.log("uploader.drop",event);
+        console.log("uploader.drop",evt);
 	},
 
 	// Init and scale image after drop //////////////////////////////////////////////////
