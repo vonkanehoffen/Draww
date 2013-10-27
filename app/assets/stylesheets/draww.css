@@ -85,7 +85,7 @@ h2 .lighter {
 .view-heading h2 {
   margin: 20px 0;
 }
-.view-heading i {
+.view-heading .glyphicon {
   color: #888;
   margin-right: 10px;
 }
