@@ -48,8 +48,13 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
-    @post.destroy
-    redirect_to posts_url
+    @post = Post.find(params[:id])
+    if @post.user == current_user
+      @post.destroy
+      redirect_to posts_url, notice: 'Post deleted.'
+    else
+      redirect_to @post, notice: "You can't delete other people's posts"
+    end
   end
 
   def vote_up

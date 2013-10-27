@@ -11,7 +11,7 @@
       <%= link_to content_tag(:span, "", :class => "glyphicon glyphicon-chevron-down"), vote_down_url(@post), :remote => true, :class => 'vote-link pull-left' %>
       <span class="glyphicon glyphicon-fullscreen pull-left post-fullscreen" title="Full screen"></span>
       <span class="glyphicon glyphicon-remove pull-right post-close" data-dismiss="modal" title="Close"></span>
-      <%# link_to 'Edit', edit_post_path(@post) if @post.user == current_user %>
+      <%= link_to('', @post, method: :delete, data: { confirm: 'Are you sure?' }, :class => "glyphicon glyphicon-trash pull-left post-delete", :title => "Delete Post") if @post.user == current_user %>
     </div>
   </div>
 </div>
