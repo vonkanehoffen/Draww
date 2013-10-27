@@ -213,6 +213,10 @@ $(document).ready(function(){
 			uploader.init();
 		}		
 	});
+	// ...and when it's on a page by itself
+	if($('#uploader-pjs').length > 0) {
+		uploader.init();
+	}
 	
 	// Show new post modal on drop into new post icon tile
 	$('.new-post a.inner').bind('drop', function(evt) {
