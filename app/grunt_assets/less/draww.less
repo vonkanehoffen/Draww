@@ -126,9 +126,12 @@ h2 .lighter {
 		position: absolute;
 		top: 5px;
 		right: 5px;
+		min-width: 30px;
+		min-height: 30px;
 		color:#fff;
 		background:rgba(0,0,0,0.5);
 		padding:8px;
+		text-align: center;
 		text-decoration: none;
 		.transition(background-color 0.4s ease);
 		.glyphicon { 
@@ -404,6 +407,13 @@ footer {
 .vote-count .spinner {
 	display: block;
 	background-size: 70%;
+}
+.vote .spinner {
+	display: block;
+	position: absolute;
+	background-size: 60%;
+	top: 0;
+	right: 0;
 }
 
 @-ms-keyframes spin {

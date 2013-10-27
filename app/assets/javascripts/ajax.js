@@ -15,6 +15,9 @@ $(function(){
     $(document).on('ajax:success', '.vote', function(evt, data, status, xhr) {
     	$(evt.target).text(data.post.vote_count);
     });
+    $(document).on('ajax:send', '.vote', function(evt, data, status, xhr) {
+        $(evt.target).html('<div class="spinner"></div>');
+    });
 
     // Pagination /////////////////////////////////////////////////////////////
 
