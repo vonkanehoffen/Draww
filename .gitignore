@@ -24,3 +24,6 @@ public/assets
 
 # Ignore my notes
 doc/
+
+#Ignore generated grunticon files outside asset pipeline
+/app/assets/grunticon
