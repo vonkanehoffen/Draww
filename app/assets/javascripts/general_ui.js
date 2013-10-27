@@ -20,6 +20,13 @@ $(document).ready(function(){
     	$(evt.target).text(data.post.vote_count);
     })
 
+    // Ajax pagination ////////////////////////////////////////////////////////
+
+    $(document).on('ajax:success', '.load-more a', function(evt, data, status, xhr) {
+    	$(evt.target).parents('.load-more').before($(data).find('.post'));
+    	$(evt.target).parents('.load-more').replaceWith($(data).find('.load-more'));
+    })
+
     // Close signup nagging when button clicked ///////////////////////////////
 
 	$('#close-signup-hero').click(function(){
