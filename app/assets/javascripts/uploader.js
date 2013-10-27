@@ -88,16 +88,16 @@ var uploader = {
        	uploader.img.ratio = img.size.height / img.size.width;
         img.position = paper.view.center;
         uploader.img.lastCenter = img.position;
-
-        if(img.size.width > img.size.height) {
+        console.log("w:"+img.bounds.width+" h:"+img.bounds.height);
+        if(img.bounds.width > img.bounds.height) {
         	uploader.img.orientation = 'landscape';
-				var s = paper.view.size.height/img.size.height;
+				var s = paper.view.size.height/img.bounds.height;
 				img.scale(s);
 				img.currentScale = s;
 
         } else {
         	uploader.img.orientation = 'portrait';
-				var s = paper.view.size.width/img.size.width;
+				var s = paper.view.size.width/img.bounds.width;
 				img.scale(s);
 				img.currentScale = s;
 
@@ -108,16 +108,11 @@ var uploader = {
 
 	defineMoveLimits: function() {
 		// for ctrl.move
-		var img = uploader.img,
-			iw = img.size.width*img.currentScale,
-			ih = img.size.height*img.currentScale,
-			vw = paper.view.size.width,
-			vh = paper.view.size.height;
-
-		img.left_limit = (img.orientation == "landscape") ? iw/2 : ih/2;
-		img.right_limit = vw - img.left_limit;
-		img.top_limit = (img.orientation == "landscape") ? ih/2 : iw/2;
-		img.bottom_limit = vh - img.top_limit;		
+		var img = uploader.img;
+		img.left_limit = img.bounds.width/2;
+		img.right_limit = paper.view.size.width - img.left_limit;
+		img.top_limit = img.bounds.height/2;
+		img.bottom_limit = paper.view.size.height - img.top_limit;		
 	},
 
 	// Image position controls //////////////////////////////////////////////////////////
