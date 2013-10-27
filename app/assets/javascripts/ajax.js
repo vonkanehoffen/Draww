@@ -7,6 +7,9 @@ $(function(){
         //console.info(evt);
         $(evt.target).parents('.post-show').find('.vote-count').text(data.post.vote_count);
     });
+    $(document).on('ajax:send', '.vote-link', function(evt, data, status, xhr) {
+        $(evt.target).parents('.post-show').find('.vote-count').html('<div class="spinner"></div>');
+    });
 
     // On posts/index
     $(document).on('ajax:success', '.vote', function(evt, data, status, xhr) {
