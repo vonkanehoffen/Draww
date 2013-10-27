@@ -1,4 +1,6 @@
 DrawwV2::Application.routes.draw do
+  get "static_pages/terms", as: 'terms'
+  get "static_pages/welcome", as: 'welcome'
   devise_for :users
   resources :posts
   root to: 'posts#index'
