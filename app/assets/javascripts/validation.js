@@ -38,7 +38,10 @@ $(function(){
 		}
 	});
 	$('#user_password').focusout(function() {
-		$('#user_password_confirmation').removeClass('hidden').focus();
+		var confirm = $('#user_password_confirmation');
+		if(!confirm.is(':visible')) {
+			confirm.removeClass('hidden').focus();
+		}
 	});
 	
 })
