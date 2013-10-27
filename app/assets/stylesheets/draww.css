@@ -79,17 +79,6 @@ h1 {
 #signup-hero img {
   width: 100%;
 }
-.signup-arrow {
-  position: absolute;
-  top: 95px;
-  right: 0px;
-  width: 233px;
-  height: 116px;
-  background: url('/assets/signup-arrow.png') top left no-repeat;
-}
-.signup-arrow span {
-  display: none;
-}
 h2 .lighter {
   color: #888;
 }

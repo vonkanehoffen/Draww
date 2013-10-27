@@ -1,2 +1,40 @@
-<h1>StaticPages#welcome</h1>
-<p>Find me in app/views/static_pages/welcome.html.erb</p>
+<div class="row">
+	<div class="col-md-12">
+		<h1>Congratulations! You’re now signed up for Draww.</h1>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-7">
+		<div class="new-user-hint upload">
+			<%= link_to image_tag("/assets/new-user-upload.png", :alt => "Upload an image maybe?"), new_post_path %>
+		</div>
+		<div class="new-user-hint vote">
+			<%= link_to image_tag("/assets/new-user-vote.png", :alt => "or go to the home page and get voting!"), posts_path %>
+		</div>
+	</div>
+	<div class="col-md-5">
+		<p class="lead">Draww is a new community for people to share their images and vote on the best ones out there.</p>
+		<p>At the moment, it’s still in <b>beta</b> so a lot of features we’re planning aren’t available yet. In the future, you’ll be able to edit and collaborate on your images, right in the browser, discuss them on-site, earn reputation points and hopefully be part of a very large community of creators!</p>
+		<p>For now, enjoy uploading your favourite images, browsing others’ creations and voting for the best.</p>
+		<p>We’d like to keep you updated about what’s going on with Draww and the exciting new features we’ll be adding. If you’d prefer we didn’t email you, please <b><script type="text/javascript" language="javascript">
+<!--
+{ coded = "xmRxPS2LK2iyx@ISE44.Pi"
+  key = "ovFlYcTQMNytqWbHZxASEui5pehPkd8JCK10RzBwjO6m2ULGV7nID3gX9sfra4"
+  shift=coded.length
+  link=""
+  for (i=0; i<coded.length; i++) {
+    if (key.indexOf(coded.charAt(i))==-1) {
+      ltr = coded.charAt(i)
+      link += (ltr)
+    }
+    else {     
+      ltr = (key.indexOf(coded.charAt(i))-shift+key.length) % key.length
+      link += (key.charAt(ltr))
+    }
+  }
+document.write("<a href='mailto:"+link+"'>let us know</a>")
+}
+//-->
+</script>.</b></p>
+	</div>
+</div>

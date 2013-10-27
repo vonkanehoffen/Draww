@@ -1,7 +1,7 @@
 DrawwV2::Application.routes.draw do
   get "static_pages/terms", as: 'terms'
   get "static_pages/welcome", as: 'welcome'
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
   resources :posts
   root to: 'posts#index'
 
