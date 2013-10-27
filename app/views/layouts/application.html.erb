@@ -46,10 +46,14 @@
 			</div>
 	  </div>
 		<div class="container">
+			<% if flash %><div id="flash-messages"><% end %>
 			<% flash.each do |name, msg| %>
-				<%= content_tag :div, msg, id: "flash_#{name}" %>
+				<div class="alert alert-info" id="flash_<%= name %>">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					<%= msg %>
+				</div>
 			<% end %>
-
+			<% if flash %></div><% end %>
 			<%= yield %>
 		</div>
 		<div id="footer-push"></div>

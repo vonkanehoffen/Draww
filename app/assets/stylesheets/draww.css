@@ -499,3 +499,6 @@ footer .logo {
     transform: rotate(360deg);
   }
 }
+#flash-messages {
+  padding-top: 15px;
+}

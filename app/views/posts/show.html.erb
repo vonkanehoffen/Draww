@@ -1,5 +1,4 @@
 <div class="post-show <%= "non-modal" if !request.xhr? %>">
-  <p id="notice"><%= notice %></p>
   <div class="modal-body">
     <%= image_tag @post.image.url(:fullsize) %>
   </div>
