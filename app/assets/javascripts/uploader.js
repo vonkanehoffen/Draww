@@ -31,7 +31,7 @@ var uploader = {
 		}, function(){
 			uploader.ctrl.hide();
 		});
-		$('#uploader-save').click(function(){
+		$('form#new_post').submit(function(){
 			uploader.ctrl.prepareSave();
 		})
 
@@ -185,6 +185,7 @@ var uploader = {
 			$('#uploader').hide();
 			$('#uploader-saving').width(wo).height(ho).addClass('spinner-grey');
 			$('#uploader-saving').show();
+			$('#uploader-save').attr('disabled', true);
 			uploader.ctrl.hide();
 			uploader.img.position = [
 				uploader.img.position.x / paper.view.size.width * 960,
