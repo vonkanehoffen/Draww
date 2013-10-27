@@ -45,6 +45,25 @@ var uploader = {
 	    });
 	    $('#drop-area .target, #uploader-pjs').bind("drop", uploader.drop);
 
+	    // File input handler
+	    $('#post_image').change(function(evt){
+			evt.preventDefault();
+	        console.info(evt);
+	        var file = evt.target.files[0];
+	        var reader = new FileReader();
+
+	        reader.onload = function(evt) {
+	            var img = document.createElement('img');
+	            img.onload = function () {
+	                uploader.initImage(img);
+	                paper.view.draw();
+	            }
+	            img.src = evt.target.result;
+	        };
+	        reader.readAsDataURL(file);
+	        console.log("uploader.drop",evt);
+	    });
+
 	    console.log('Uploader initialised');
 	},
 
