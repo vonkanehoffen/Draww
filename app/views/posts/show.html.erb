@@ -4,7 +4,7 @@
   </div>
   <div class="modal-footer">
     <h4><%= @post.title %> <small>by <%= @post.user.username rescue "Unknown" %></small></h4>
-    <div class="vote-count"><%= @post.vote_count or "0" %></div>
+    <div class="vote-count" data-toggle="popover" data-placement="top" data-html="true" data-content="You need to <b><a href='<%= new_user_session_path %>'>sign in</a></b> to vote!"><%= @post.vote_count or "0" %></div>
     <div class="actions">
       <%= link_to content_tag(:span, "", :class => "glyphicon glyphicon-chevron-up"), vote_up_url(@post), :remote => true, :class => 'vote-link pull-left' %>
       <%= link_to content_tag(:span, "", :class => "glyphicon glyphicon-chevron-down"), vote_down_url(@post), :remote => true, :class => 'vote-link pull-left' %>

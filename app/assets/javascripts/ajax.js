@@ -3,12 +3,23 @@ $(function(){
 	// Update vote count //////////////////////////////////////////////////////
 
 	// In modal
-    $(document).on('ajax:success', '.vote-link', function(evt, data, status, xhr) {
-        //console.info(evt);
-        $(evt.target).parents('.post-show').find('.vote-count').text(data.post.vote_count);
+    $(document).on('ajax:complete', '.vote-link', function(evt, xhr, status) {
+        console.log("evt: evt", evt, "xhr", xhr, "status", status);
+        var vote_count = $(evt.target).parents('.post-show').find('.vote-count');
+        if(status == 'success') {
+            vote_count.text(xhr.responseJSON.post.vote_count);
+        } else {
+            if(xhr.status == 401) {
+                vote_count.popover('show'); 
+            }
+            vote_count.html(vote_count.data('old-count'));
+        }
     });
+
     $(document).on('ajax:send', '.vote-link', function(evt, data, status, xhr) {
-        $(evt.target).parents('.post-show').find('.vote-count').html('<div class="spinner"></div>');
+        var vote_count = $(evt.target).parents('.post-show').find('.vote-count');
+        vote_count.data('old-count', vote_count.html());
+        vote_count.html('<div class="spinner"></div>');
     });
 
     // On posts/index
