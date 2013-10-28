@@ -40,7 +40,7 @@ $(function(){
         $(evt.target).html('<div class="spinner-grey"></div>');
     });
 
-    // Spinners ///////////////////////////////////////////////////////////////
+    // Modal loading spinners /////////////////////////////////////////////////
 
     $(document).on('show.bs.modal', '.modal', function() {
     	console.log("show.bs.modal");
