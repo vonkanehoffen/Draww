@@ -3,21 +3,20 @@ $(function(){
 	// Full screen action /////////////////////////////////////////////////////
 
 	$(document).on('click', '.post-fullscreen', function() {
-		console.log('fullscreen');
 		$(this).parents('.modal-dialog').width('100%');
-	})
+	});
 
-    // Close signup nagging when button clicked ///////////////////////////////
+	// Close modal posts/show when image clicked /////////////////////////////
 
-	$('#close-signup-hero').click(function(){
-		$('#signup-hero').remove();
-	})
+	$(document).on('click', '.modal-body img', function() {
+		$(this).parents('.modal').modal('hide');
+	});
 
 	// Focus Username field for login modal ///////////////////////////////////
 
 	$('#login-modal').on('shown.bs.modal', function() {
 		$('#user_username').focus();
-	})
+	});
 
 	// Show tooltips //////////////////////////////////////////////////////////
 
