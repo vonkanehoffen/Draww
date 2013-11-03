@@ -18,6 +18,7 @@ html, body {
 }
 body {
 	text-rendering: optimizelegibility;
+	-webkit-font-smoothing: antialiased;
 }
 body > .container {
 	
@@ -441,13 +442,20 @@ footer {
 
 // Browser compatibility ------------------------------------------------------
 
-#noscript-warning {
+#noscript-warning, #ie-warning {
 	position: fixed;
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	background: #f00;
+	background: @brand-danger;
 	color: #fff;
 	padding: 10px;
 	z-index: 2000;
+	b {
+		font-size:1.3em;
+	}
+	a {
+		color:#fff;
+		text-decoration: underline;
+	}
 }
