@@ -4,7 +4,7 @@ $(function(){
 
 	// In modal
     $(document).on('ajax:complete', '.vote-link', function(evt, xhr, status) {
-        console.log("evt: evt", evt, "xhr", xhr, "status", status);
+        
         var vote_count = $(evt.target).parents('.post-show').find('.vote-count');
         if(status == 'success') {
             vote_count.text(xhr.responseJSON.post.vote_count);
@@ -43,11 +43,11 @@ $(function(){
     // Modal loading spinners /////////////////////////////////////////////////
 
     $(document).on('show.bs.modal', '.modal', function() {
-    	console.log("show.bs.modal");
+    	
     	$(this).append('<div class="spinner"></div>');
     });
     $(document).on('shown.bs.modal', '.modal', function() {
-    	console.log("shown.bs.modal");
+    	
     	$(this).find('.spinner').remove();
     });
 

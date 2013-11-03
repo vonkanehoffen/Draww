@@ -52,7 +52,7 @@ var uploader = {
 	    	uploader.drop(evt, evt.target.files[0]);
 	    });
 
-	    console.log('Uploader initialised');
+	    
 	},
 
 	// Handle Image Drop ////////////////////////////////////////////////////////////////
@@ -71,7 +71,7 @@ var uploader = {
             img.src = evt.target.result;
         };
         reader.readAsDataURL(file);
-        console.log("uploader.drop",evt);
+        
 	},
 
 	// Init and scale image after drop //////////////////////////////////////////////////
@@ -80,7 +80,7 @@ var uploader = {
         $('#drop-area').hide();
         $('#uploader').show();
         var view_width = $('#uploader').width();
-    	console.log('resizing canvas to #uploader width: ', view_width);
+    	
     	paper.view.viewSize = [view_width, view_width];
         uploader.img = new paper.Raster(img);
         img = uploader.img;
@@ -88,7 +88,7 @@ var uploader = {
        	uploader.img.ratio = img.size.height / img.size.width;
         img.position = paper.view.center;
         uploader.img.lastCenter = img.position;
-        console.log("w:"+img.bounds.width+" h:"+img.bounds.height);
+        
         if(img.bounds.width > img.bounds.height) {
         	uploader.img.orientation = 'landscape';
 				var s = paper.view.size.height/img.bounds.height;
@@ -179,7 +179,7 @@ var uploader = {
 		// Saving ///////////////////////////////////////////////////////////////////////
 
 		prepareSave: function() {
-			console.log("prepareSave", paper.view.size);
+			
 			var wo = paper.view.size.width;
 			var ho = paper.view.size.height;
 			var xo = uploader.img.size.width;
@@ -203,7 +203,7 @@ var uploader = {
 // Init & Attach main event handlers /////////////////////////////////////////////////////////
 
 $(document).ready(function(){
-	console.log("draww3 loaded");
+	
 	$(window).bind("dragenter dragover dragleave dragexit drop", function(event) {
         event.preventDefault();
     });
@@ -223,7 +223,7 @@ $(document).ready(function(){
 	$('.new-post a.inner').bind('drop', function(evt) {
 		event.preventDefault();
 		$(this).removeClass('over');
-		console.log("direct drop");
+		
 		// $('#new-post-modal').modal({'show': true, 'remote': $(this).attr('href')});
 		$('#new-post-modal').modal('show');
 		uploader.drop(evt);
@@ -231,7 +231,7 @@ $(document).ready(function(){
 
 	// // Init uploader on drop inside new post modal
 	// $('#new-post-modal').on('shown.bs.modal', function() {
-	// 	console.log("normal uploader init");
+	// 	
 	// });
 
 });
