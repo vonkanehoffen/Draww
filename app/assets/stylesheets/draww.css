@@ -296,6 +296,12 @@ body .modal-dialog {
 #drop-area .target.over {
   opacity: 0.8;
 }
+.mz-no-draganddrop #drop-area .target {
+  background-image: url(/assets/no-canvas-warn.png);
+}
+.mz-no-canvas .form-group.file-upload {
+  display: none;
+}
 #uploader {
   display: none;
   position: relative;
