@@ -27,3 +27,7 @@ doc/
 
 #Ignore generated grunticon files outside asset pipeline
 /app/assets/grunticon
+
+#Ignore vagrant boxes
+*.box
+.vagrant
