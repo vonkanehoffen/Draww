@@ -25,9 +25,12 @@ public/assets
 # Ignore my notes
 doc/
 
-#Ignore generated grunticon files outside asset pipeline
+# Ignore generated grunticon files outside asset pipeline
 /app/assets/grunticon
 
-#Ignore vagrant boxes
+# Ignore vagrant boxes
 *.box
 .vagrant
+
+# Ignore DB config (passwords)
+config/database.yml
