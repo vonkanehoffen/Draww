@@ -1,7 +1,8 @@
-working_directory "/vagrant"
-pid "/vagrant/tmp/pids/unicorn.pid"
-stderr_path "/vagrant/log/unicorn.log"
-stdout_path "/vagrant/log/unicorn.log"
+root = "/home/deployer/apps/draww"
+working_directory root
+pid "#{root}/tmp/pids/unicorn.pid"
+stderr_path "#{root}/log/unicorn.log"
+stdout_path "#{root}/log/unicorn.log"
 
 listen "/tmp/unicorn.draww.sock"
 worker_processes 2
