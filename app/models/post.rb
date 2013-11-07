@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
   attr_accessor :image_data
   before_validation :save_image_data
 
-  require_dependency 'lib/datafy'
+  require_dependency "#{Rails.application.root}/lib/datafy"
 
 	def vote_up(user)
     vote = votes.find_by_user_id(user.id)
