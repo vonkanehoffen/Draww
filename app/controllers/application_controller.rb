@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-  require_dependency 'lib/user_sanitizer'
+  require_dependency "#{Rails.application.root}/lib/user_sanitizer.rb"
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
