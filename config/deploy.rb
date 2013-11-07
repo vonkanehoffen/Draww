@@ -11,6 +11,7 @@ set :branch, 'master'
 # set :log_level, :debug
 # set :pty, true
 
+# note: database.yml had to be touched on the remote server first.
 set :linked_files, %w{config/database.yml}
 # set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
