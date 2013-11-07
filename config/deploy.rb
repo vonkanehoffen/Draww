@@ -20,9 +20,17 @@ set :linked_files, %w{config/database.yml}
 
 namespace :deploy do
 
+  task :setup_config, roles: :app do
+    sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
+    sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
+  end
+
+  after "deploy:setup", "deploy:setup_config"
+
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
+      
       # Your restart mechanism here, for example:
       # execute :touch, release_path.join('tmp/restart.txt')
     end
