@@ -24,10 +24,10 @@ $(function(){
 		rules: {
 			'user[username]': "required",
 			'user[password]': {
-				minlength: 8
+				minlength: 6
 			},
 			'user[password_confirmation]': {
-				minlength: 8,
+				minlength: 6,
 				equalTo: '#user_password'
 			}
 		},
