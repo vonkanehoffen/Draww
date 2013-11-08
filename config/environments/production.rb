@@ -77,4 +77,17 @@ DrawwV2::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  # Setup Paperclip to store images on S3
+  AWS_CONFIG = YAML.load_file("#{::Rails.root}/config/aws.yml")[::Rails.env]
+
+  Paperclip::Attachment.default_options[:s3_host_name] = AWS_CONFIG['s3_host']
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => AWS_CONFIG['s3_bucket'],
+      :access_key_id => AWS_CONFIG['access_key_id'],
+      :secret_access_key => AWS_CONFIG['secret_access_key']
+    }
+  }
 end

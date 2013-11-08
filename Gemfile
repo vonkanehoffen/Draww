@@ -28,6 +28,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'paperclip', '>= 3.5.1'
+gem 'aws-sdk', '~> 1.5.7'
 gem 'devise', '>=3.1.0'
 gem 'kaminari', '>=0.14.1'
 

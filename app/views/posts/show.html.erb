@@ -1,6 +1,6 @@
 <div class="post-show <%= "non-modal" if !request.xhr? %>">
   <div class="modal-body">
-    <%= image_tag @post.image.url(:fullsize) %>
+    <%= image_tag @post.image.url(:original) %>
   </div>
   <div class="modal-footer">
     <h4><%= @post.title %> <small>by <%= @post.user.username rescue "Unknown" %></small></h4>

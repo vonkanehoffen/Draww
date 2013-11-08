@@ -1,0 +1,6 @@
+# Amazon AWS Config
+development:
+  s3_host: s3-eu-west-1.amazonaws.com
+  s3_bucket: draww
+  access_key_id: secret
+  secret_access_key: secret

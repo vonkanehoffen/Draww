@@ -32,5 +32,6 @@ doc/
 *.box
 .vagrant
 
-# Ignore DB config (passwords)
+# Ignore config containing passwords
 config/database.yml
+config/aws.yml
