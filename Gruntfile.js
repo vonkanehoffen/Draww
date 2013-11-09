@@ -20,7 +20,9 @@ module.exports = function (grunt) {
             "cc_by_nc": ".cc",
             "draww_logo": ".logo",
             "spinner": ".spinner",
-            "spinner_grey": ".spinner-grey"
+            "spinner_grey": ".spinner-grey",
+            "drop_area": "#drop-area .target",
+            "no_canvas_warn": ".mz-no-draganddrop #drop-area .target"
           }
         }
       }
