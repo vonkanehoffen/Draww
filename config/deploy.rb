@@ -26,6 +26,7 @@ namespace :deploy do
 
       # Your restart mechanism here, for example:
       # execute :touch, release_path.join('tmp/restart.txt')
+      execute "/etc/init.d/unicorn_draww", "restart"
     end
   end
 
