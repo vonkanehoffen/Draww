@@ -12,7 +12,7 @@ module.exports = function (grunt) {
     grunticon: {
       icons: {
         options: {
-          src: "app/grunt_assets/svg/",
+          src: "app/grunt_assets/images/",
           dest: "app/assets/grunticon",
           svgo: true,
           datasvgcss: "../stylesheets/icons.data.svg.css",
