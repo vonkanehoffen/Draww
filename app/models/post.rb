@@ -52,7 +52,6 @@ class Post < ActiveRecord::Base
       logger.debug "Friendly name = "+tmp_uri
       File.open(tmp_uri, "wb") { |f| f.write(Datafy::decode_data_uri(image_data)[0]) }  
       self.image = File.open(tmp_uri, "r")
-      # TODOL: Remove the temporary image after paperclip saves it.
     end
   end
 
