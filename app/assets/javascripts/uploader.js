@@ -51,7 +51,10 @@ var uploader = {
 	    $('#post_image').change(function(evt){
 	    	uploader.drop(evt, evt.target.files[0]);
 	    });
-
+	    $('#drop-area .target, .new-post a.inner').click(function(){
+	    	$('#post_image').click();
+	    	console.log('cicked file');
+	    });
 	    
 	},
 
