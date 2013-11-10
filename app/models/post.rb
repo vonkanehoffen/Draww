@@ -7,6 +7,7 @@ class Post < ActiveRecord::Base
 
   attr_accessor :image_data
   before_validation :save_image_data
+  after_post_process :remove_temporary_image_file
 
   require_dependency "#{Rails.application.root}/lib/datafy"
 
@@ -63,6 +64,11 @@ class Post < ActiveRecord::Base
     s.strip!
     s.gsub!(/\ +/, '-')
     return s
+  end
+
+  def remove_temporary_image_file
+    file = "tmp/"+friendly_name(self.title)+".jpg"
+    File.delete(file)
   end
 
 end
