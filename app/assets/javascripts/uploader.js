@@ -53,7 +53,6 @@ var uploader = {
 	    });
 	    $('#drop-area .target, .new-post a.inner').click(function(){
 	    	$('#post_image').click();
-	    	console.log('cicked file');
 	    });
 	    
 	},
@@ -62,7 +61,6 @@ var uploader = {
 
 	drop: function(evt, file) {
 		evt.preventDefault();
-        console.info(evt);
         var reader = new FileReader();
 
         reader.onload = function(evt) {
@@ -230,11 +228,6 @@ $(document).ready(function(){
 		// $('#new-post-modal').modal({'show': true, 'remote': $(this).attr('href')});
 		$('#new-post-modal').modal('show');
 		uploader.drop(evt);
-	});
-
-	// // Init uploader on drop inside new post modal
-	// $('#new-post-modal').on('shown.bs.modal', function() {
-	// 	
-	// });
+	});	
 
 });
