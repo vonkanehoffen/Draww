@@ -54,6 +54,7 @@ var uploader = {
 	    $('#drop-area .target, .new-post a.inner').click(function(){
 	    	$('#post_image').click();
 	    });
+	    console.log('uploader.init complete');
 	    
 	},
 
@@ -208,17 +209,6 @@ $(document).ready(function(){
 	$(window).bind("dragenter dragover dragleave dragexit drop", function(event) {
         event.preventDefault();
     });
-
-    // Initialise uploader when the modal loads
-	$('#new-post-modal').on('shown.bs.modal', function() {
-		if($('#uploader-pjs').length) {
-			uploader.init();
-		}		
-	});
-	// ...and when it's on a page by itself
-	if($('#uploader-pjs').length > 0) {
-		uploader.init();
-	}
 	
 	// Show new post modal on drop into new post icon tile
 	$('.new-post a.inner').bind('drop', function(evt) {
