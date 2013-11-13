@@ -45,11 +45,9 @@ class Post < ActiveRecord::Base
 
   private
   def save_image_data
-    logger.debug "Saving image data"
     if self.image_data
       require Rails.root.join('lib', 'datafy.rb')
       self.tmp_uri = "tmp/"+friendly_name(self.title)+"_"+Time.new.to_f.to_s+".jpg"
-      logger.debug "Friendly name = "+self.tmp_uri
       File.open(self.tmp_uri, "wb") { |f| f.write(Datafy::decode_data_uri(image_data)[0]) }  
       self.image = File.open(self.tmp_uri, "r")
     end
@@ -66,7 +64,6 @@ class Post < ActiveRecord::Base
   end
 
   def remove_temporary_image_file
-    logger.debug("Deleting: "+self.tmp_uri)
     File.delete(self.tmp_uri) if File.exist?(self.tmp_uri)
   end
 
