@@ -5,7 +5,7 @@ class Post < ActiveRecord::Base
 	belongs_to :user
 	has_many :votes
 
-  attr_accessor :image_data
+  attr_accessor :image_data, :tmp_uri
   before_validation :save_image_data
   after_post_process :remove_temporary_image_file
 
@@ -48,10 +48,10 @@ class Post < ActiveRecord::Base
     logger.debug "Saving image data"
     if self.image_data
       require Rails.root.join('lib', 'datafy.rb')
-      tmp_uri = "tmp/"+friendly_name(self.title)+".jpg"
-      logger.debug "Friendly name = "+tmp_uri
-      File.open(tmp_uri, "wb") { |f| f.write(Datafy::decode_data_uri(image_data)[0]) }  
-      self.image = File.open(tmp_uri, "r")
+      self.tmp_uri = "tmp/"+friendly_name(self.title)+"_"+Time.new.to_f.to_s+".jpg"
+      logger.debug "Friendly name = "+self.tmp_uri
+      File.open(self.tmp_uri, "wb") { |f| f.write(Datafy::decode_data_uri(image_data)[0]) }  
+      self.image = File.open(self.tmp_uri, "r")
     end
   end
 
@@ -66,8 +66,8 @@ class Post < ActiveRecord::Base
   end
 
   def remove_temporary_image_file
-    file = "tmp/"+friendly_name(self.title)+".jpg"
-    File.delete(file)
+    logger.debug("Deleting: "+self.tmp_uri)
+    File.delete(self.tmp_uri)
   end
 
 end
