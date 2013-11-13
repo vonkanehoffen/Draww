@@ -67,7 +67,7 @@ class Post < ActiveRecord::Base
 
   def remove_temporary_image_file
     logger.debug("Deleting: "+self.tmp_uri)
-    File.delete(self.tmp_uri)
+    File.delete(self.tmp_uri) if File.exist?(self.tmp_uri)
   end
 
 end
