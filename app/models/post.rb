@@ -64,7 +64,10 @@ class Post < ActiveRecord::Base
   end
 
   def remove_temporary_image_file
-    File.delete(self.tmp_uri) if File.exist?(self.tmp_uri)
+    # Maybe this double check will stop the "TypeError: no implicit conversion of nil into String" error on .exist?
+    if self.tmp_uri then
+      File.delete(self.tmp_uri) if File.exist?(self.tmp_uri)
+    end
   end
 
 end
