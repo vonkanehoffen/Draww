@@ -16,7 +16,7 @@ class Post < ActiveRecord::Base
     if vote
       vote.update_attributes(:weight => 1)
     else
-    	votes.build(:user => user, :weight => 1)
+    	vote = votes.build(:user => user, :weight => 1)
     end
     count_votes
     vote
@@ -27,7 +27,7 @@ class Post < ActiveRecord::Base
     if vote
       vote.update_attributes(:weight => -1)
     else
-      votes.build(:user => user, :weight => -1)
+      vote = votes.build(:user => user, :weight => -1)
     end
     count_votes
     vote
