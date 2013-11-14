@@ -48,7 +48,8 @@ class Post < ActiveRecord::Base
     if self.image_data
       require Rails.root.join('lib', 'datafy.rb')
       self.tmp_uri = "tmp/"+friendly_name(self.title)+"_"+Time.new.to_f.to_s+".jpg"
-      File.open(self.tmp_uri, "wb") { |f| f.write(Datafy::decode_data_uri(image_data)[0]) }  
+      logger.info("creating temp file: "+self.tmp_uri)
+      File.open(self.tmp_uri, "wb") { |f| f.write(Datafy::decode_data_uri(self.image_data)[0]) }  
       self.image = File.open(self.tmp_uri, "r")
     end
   end
@@ -66,6 +67,7 @@ class Post < ActiveRecord::Base
   def remove_temporary_image_file
     # Maybe this double check will stop the "TypeError: no implicit conversion of nil into String" error on .exist?
     if self.tmp_uri then
+      logger.info("deleting temp file: "+self.tmp_uri)
       File.delete(self.tmp_uri) if File.exist?(self.tmp_uri)
     end
   end
